@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello IndexController!{% endblock %}
+
+{% block body %}
+<div class="jumbotron">
+    <div class="container">
+    {{ form_start(filtre) }}
+        <div class="form-row">
+            <div class="col-12">
+                {{form_row(filtre.minSurface)}} 
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="col-12">
+                {{form_row(filtre.maxPrice)}} 
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="col-12">
+                <button type="submit" class="btn btn-info">Rechercher</button>
+            </div>
+        </div>
+    {{ form_end(filtre) }}
+    </div>
+</div>
+
+    <div class="container pad">
+        <div class="row">
+            {% for bien in biens %}
+                <div class="card col-5 mar">
+                    <div class="card-body">
+                        <h4 class="card-title">{{bien.title}}</h4>
+                        <img src="{{bien.picture}}" class="card-img-top">
+                        <div class="card-text">{{bien.price|number_format(0,',',' ')}} €</div>
+                        <div class="card-text">Surface : {{bien.surface}} m²</div>
+                        <a href="http://localhost:8000/fiche/{{bien.id}}" class="btn btn-secondary">Détails</a>
+                    </div>
+                </div>
+            {% endfor  %}
+            </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Inscription{% endblock %}
+
+{% block body %}
+
+    
+    <div class="container pad">
+        <h1>Inscription</h1>
+            {{ form_start(formUser) }}
+
+                <div class="row form-group">
+                    <div class="input-group-text col-12">
+                    <div class="col-11">
+                     {{ form_row(formUser.Username, {'attr': {'placeholder' : 'Username'}}) }}
+                    </div>
+                    <i class="fas fa-at fa-2x"></i>
+                    </div>
+                </div>
+                
+                <div class="row form-group">
+                <div class="input-group-text col-12">
+                <div class="col-11">{{ form_row(formUser.email, {'attr': {'placeholder' : 'Email'}}) }}</div>
+                <i class="fas fa-envelope fa-2x"></i></div>
+                </div>
+
+                <div class="row form-group">
+                <div class="input-group-text col-12">
+                <div class="col-11">{{ form_row(formUser.password, {'attr': {'placeholder' : 'Password'}}) }}</div>
+                <i class="fas fa-key fa-2x"></i></div>
+                </div>
+
+                <div class="row form-group">
+                <div class="input-group-text col-12 ">
+                <div class="col-11">{{ form_row(formUser.confirm_password, {'attr': {'placeholder' : 'Password'}}) }}</div>
+                <i class="fas fa-key fa-2x"></i></div>
+                </div>
+
+                <div class="row form-group"> 
+                <button type="submit" class="btn btn-info">Inscription</button>
+                </div>
+                
+            {{ form_end(formUser) }}
+    </div>
+
+{% endblock %}

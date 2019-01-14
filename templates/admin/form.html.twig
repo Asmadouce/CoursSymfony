@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+{% form_theme formBiens 'bootstrap_4_layout.html.twig' %}
+
+{% block title %}Les maisons d'Asmaoui!{% endblock %}
+
+{% block body %}
+    <div class="container pad">
+    <h2> Enregistrer un nouveau bien : </h2>
+        {{ form_start(formBiens) }}
+            {{ form_row(formBiens.title, {'attr': {'placeholder' : 'Titre du bien'}}) }}
+            {{ form_row(formBiens.surface, {'attr': {'placeholder' : 'Surface du bien'}}) }}
+            {{ form_row(formBiens.picture, {'attr': {'placeholder' : 'Photo du bien'}}) }}
+            {{ form_row(formBiens.price, {'attr': {'placeholder' : 'Prix du bien'}}) }}
+            <button type="submit" class="btn btn-succes"> 
+                {% if editMode %}
+                Modifier le bien 
+                {% else %}
+                Ajouter le bien
+                {% endif %}
+            </button>
+        {{ form_end(formBiens) }}
+      
+    </div>
+{% endblock %}

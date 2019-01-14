@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %}Les maisons d'Asmaoui!{% endblock %}
+
+{% block body %}
+    <div class="container pad">
+
+        
+    <h2> Contact: </h2>
+        {{ form_start(formContact) }}
+            <div class="row form-group">
+
+                <div class="input-group-text col-12">
+                    <div class="col-11">
+                        {{ form_row(formContact.name, {'label':'Nom','attr': {'placeholder' : 'Nom...'}}) }}
+                    </div>
+                </div>
+
+                <div class="input-group-text col-12">
+                    <div class="col-11">
+                        {{ form_row(formContact.firstname, {'attr': {'placeholder' : 'Prénom'}}) }}
+                    </div>
+                </div>
+
+                <div class="input-group-text col-12">
+                    <div class="col-11">
+                        {{ form_row(formContact.email, {'attr': {'placeholder' : 'Email'}}) }}
+                    </div>
+                </div>           
+                
+                <div class="input-group-text col-12">
+                    <div class="col-11">
+                {{ form_row(formContact.commentaire, {'attr': {'placeholder' : 'Commentaire'}}) }}
+                    </div>
+                </div>
+
+
+                <button type="submit" class="btn btn-info"> 
+                    Envoyer!
+                </button>
+
+            </div>
+        {{ form_end(formContact) }}
+      
+    </div>
+{% endblock %}

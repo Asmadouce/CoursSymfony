@@ -1,0 +1,14 @@
+{# contacts/emails.html.twig #}
+<h3>Les Maisons d'Asmaoui</h3>
+
+<div class="container">
+    {{viewEmail.firstname}} s'est connecté sur votre site <a href="{{ url('login') }}">Les Maisons d'Asmaoui</a>
+    Pour répondre à la demande voici les coordonnées du client:
+
+    <div> Nom : {{viewEmail.name}} </div>
+    <div> Prénom : {{viewEmail.firstname}} </div>
+    <div> Email : {{viewEmail.email}} <div>
+    <div> Commentaires : {{viewEmail.commentaire}} </div>
+</div>
+{# Makes an absolute URL to the /images/logo.png file #}
+<img src="{{ absolute_url(asset('img/maison.gif')) }}">

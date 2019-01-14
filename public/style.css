@@ -1,0 +1,26 @@
+.banniere
+{
+    background-image: url('img/immobilier.jpg');
+    height: 350px;
+	background-size: cover;
+}
+.flash-notice
+{
+    color:red;
+    font-size: 30px;
+
+}
+footer
+{
+    background-image: url('img/immobilier.jpg');
+    height: 100px;
+	background-size: cover;
+}
+.pad
+{
+    padding:100px;
+}
+.mar
+{
+    margin:10px;
+}

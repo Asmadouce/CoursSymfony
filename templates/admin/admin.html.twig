@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Les Maisons d'Asmaoui!{% endblock %}
+
+{% block body %}
+    <div class="container pad">
+        <div class="row">
+
+        {% for message in app.flashes('notice') %}
+            <div class="flash-notice text-center col-12">
+                {{ message }}
+            </div>
+        {% endfor %}
+        
+            <table class="table table-hover table-light">
+                <thead>
+                    <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Titre du bien</th>
+                    <th scope="col">Surface </th>
+                    <th scope="col">Prix </th>
+                    <th scope="col">Editer</th>
+                    <th scope="col">Supprimer</th>
+                    </tr>
+                </thead>
+                {% for bien in biens %}
+                    <div class="card col-12">
+                        <tbody>
+                            <tr>
+                                <th scope="row">{{bien.id}}</th>
+                                <td>{{bien.title}}</td>
+                                <td>{{bien.surface}} m²</td>
+                                <td>{{bien.price|number_format(0,',',' ')}} €</td>  
+                                <td><a href="admin/{{bien.id}}/edit" class="btn btn-success"><i class="far fa-edit"></i></a></td>
+                                <td><a href="admin/{{bien.id}}/remove" class="btn btn-danger"><i class="far fa-trash-alt"></i></a></td>                         
+                            </tr>
+                        </tbody>
+                    </div>
+                {% endfor  %}
+            </table>
+            <a href="{{path("form")}}" class="btn btn-secondary"><i class="fas fa-plus fa-6x"></i></a>
+
+        </div>
+    </div>
+{% endblock %}

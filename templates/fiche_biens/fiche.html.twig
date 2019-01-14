@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello FicheBiensController!{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">    
+                <div class="card col-12">
+                    <div class="card-body">
+                        <h4 class="card-title">{{bien.title}}</h4>
+                        <img src="../{{bien.picture}}" class="card-img-top">
+                        <div class="card-text">{{bien.price|number_format(0,',',' ')}} €</div>
+                        <div class="card-text">Surface : {{bien.surface}} m²</div>
+                        <a href="http://localhost:8000/fiche/{{bien.id}}" class="btn btn-secondary">Détails</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

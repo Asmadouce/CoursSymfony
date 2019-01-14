@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Les maisons d'Asmaoui!{% endblock %}</title>
+        {% block stylesheets %}
+            <link rel="stylesheet" href="{{ asset('library/bootstrap/css/bootstrap.css')}}" />
+            <link rel="stylesheet" href="{{ asset('library/fontawesome/css/all.css')}}"/>
+            <link rel="stylesheet" type="text/css" href="{{ asset('style.css')}}" />
+        {% endblock %}
+    </head>
+
+    <body>
+        <header class="banniere">
+        </header>
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-secondary">       
+                <a class="navbar-brand text-dark"  href="{{path("index")}}">Les Maisons D'Asmaoui</a> 
+                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+              <div class="collapse navbar-collapse" id="navbarNav">   
+                <a class="col-2 text-light" href="{{path("contact")}}">Contact<span class="sr-only">(current)</span></a>
+                <a class="col-2 text-light"  href="{{path("registration")}}">Inscription<span class="sr-only">(current)</span></a>
+            
+            {% if not app.user%}
+                
+                <a class="col-2 text-light"  href="{{path("login")}}">Connexion<span class="sr-only">(current)</span></a>
+            
+            {% else %}
+                <a class="col-2 text-light"  href="{{path("form")}}">Ajouter un bien<span class="sr-only">(current)</span></a>
+                <a class="col-2 text-light"  href="{{path("admin")}}">Admin<span class="sr-only">(current)</span></a>
+                <a class="col-2 text-light"  href="{{path("logout")}}">Deconnexion<span class="sr-only">(current)</span></a>
+            
+                <h4 class="col-2 text-center text-dark"> Bonjour : {{app.user.Username}} !</h4><!--https://symfony.com/doc/current/templating/app_variable.html-->
+            </div>    
+                {% endif %}              
+        </nav>
+
+        {% block body %}{% endblock %}
+
+        <footer>
+        </footer>
+
+            {% block javascripts %}
+            <script src="/library/bootstrap/js/bootstrap.bundle.js"></script> 
+            <script src="js/jQuery.js"></script>
+            <script src="js/script.js"></script>
+            {% endblock %}
+    </body>
+</html>
